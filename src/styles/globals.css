@@ -1,7 +1,9 @@
-@import './fonts.css';
-@import './animations.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  
   --color-bg: #0f172a;
   --color-paper: #fefce8;
   --color-ink: #1e293b;
@@ -21,6 +23,33 @@
   --radius-full: 9999px;
 }
 
+/* Animations */
+@keyframes revealBlur {
+  0% { filter: blur(20px); opacity: 0; transform: scale(0.95); }
+  100% { filter: blur(0); opacity: 1; transform: scale(1); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes waxSealPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(153, 27, 27, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px 5px rgba(153, 27, 27, 0.2); }
+}
+
+.animate-reveal { animation: revealBlur 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
+
+/* Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +61,6 @@ body {
   color: #f1f5f9;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   line-height: 1.5;
 }
@@ -51,21 +79,4 @@ button {
 
 input, textarea {
   font-family: inherit;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #475569;
 }

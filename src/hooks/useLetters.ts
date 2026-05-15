@@ -8,7 +8,11 @@ export const useLetters = () => {
 
   // Load on mount
   useEffect(() => {
-    setLetters(getLetters());
+    try {
+      setLetters(getLetters());
+    } catch (error) {
+      console.error('App failed to load letters:', error);
+    }
   }, []);
 
   // Sync to storage
