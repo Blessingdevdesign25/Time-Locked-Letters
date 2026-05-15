@@ -1,0 +1,72 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: inherit;
+  transition: opacity 0.5s ease;
+}
+
+.waxSealContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.waxSeal {
+  width: 80px;
+  height: 80px;
+  background: var(--color-wax);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(153, 27, 27, 0.4);
+  position: relative;
+  cursor: pointer;
+  animation: waxSealPulse 3s infinite ease-in-out;
+}
+
+.waxSeal::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid var(--color-wax);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.sealIcon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.title {
+  color: var(--color-paper);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.button {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: var(--color-accent);
+  color: white;
+  transform: translateY(-2px);
+}

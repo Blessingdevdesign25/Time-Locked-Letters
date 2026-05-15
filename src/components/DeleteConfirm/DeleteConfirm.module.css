@@ -1,0 +1,62 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.modal {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  max-width: 400px;
+  width: 100%;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ef4444;
+}
+
+.message {
+  color: var(--color-text-dim);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancel {
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  color: #f1f5f9;
+  font-weight: 500;
+}
+
+.cancel:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.confirm {
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: #ef4444;
+  color: white;
+  font-weight: 600;
+}
+
+.confirm:hover {
+  background: #dc2626;
+}
